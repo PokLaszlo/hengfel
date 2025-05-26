@@ -42,22 +42,43 @@ public class MainController {
 
     @FXML
     void onClick_calcButton(ActionEvent event) {
-        Double rad = radius_Field.getText().isEmpty() ? 0 : Double.parseDouble(radius_Field.getText());
-        Double hei = height_Field.getText().isEmpty() ? 0 : Double.parseDouble(height_Field.getText());
+        if(radius_Field.getText().isEmpty() || height_Field.getText().isEmpty()){
+            warning("Nem lehet üres az adat");
+            clearFields();
+            return;
+        }
+        if(!radius_Field.getText().matches("[0-9]+") || !height_Field.getText().matches("[0-9]+")){
+            warning("Csak számok lehetnek");
+            clearFields();
+            return;
+        }
+
+        Double rad = Double.parseDouble(radius_Field.getText());
+        Double hei = Double.parseDouble(height_Field.getText());
         Double surface = 2*Math.PI*rad*(rad+hei);
         surface = Math.round(surface * 100.0) / 100.0;
 
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Eredmény");
-        alert.setHeaderText("Felület");
-        alert.setContentText("Az adott henger felülete: "+String.valueOf(surface)+" cm^2");
-        alert.show();
-
+        String message = "Az adott henger felülete: "+String.valueOf(surface)+" cm^2";
+        information("Eredmény", "Henger felülete", message);
         clearFields();        
     }
     private void clearFields() {
         radius_Field.setText("");
         height_Field.setText("");
+    }
+    private void warning(String message) {
+        Alert alert = new Alert(AlertType.WARNING);
+        alert.setTitle("Figyelmeztetes");
+        alert.setHeaderText("Figyelmeztetes");
+        alert.setContentText(message);
+        alert.show();
+    }
+    private void information(String title,String header,String message) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(message);
+        alert.show();
     }
 
 }
