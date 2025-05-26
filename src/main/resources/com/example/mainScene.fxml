@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.example.MainController">
+  <tabs>
+    <Tab text="Henger-felszín">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="radius_Field" layoutX="225.0" layoutY="46.0" promptText="Sugár (cm)" />
+                  <TextField fx:id="height_Field" layoutX="226.0" layoutY="92.0" promptText="Magasság (cm)" />
+                  <Button layoutX="274.0" layoutY="142.0" mnemonicParsing="false" onAction="#onClick_calcButton" text="Számít" />
+                  <Label layoutX="191.0" layoutY="14.0" text="Kör alapú henger felületének kiszámítása" />
+                  <Label layoutX="242.0" layoutY="177.0" text="Eddigi próbálkozások" />
+                  <TableView fx:id="resultTable" layoutX="199.0" layoutY="209.0" prefHeight="147.0" prefWidth="202.0">
+                    <columns>
+                      <TableColumn fx:id="radCol" prefWidth="65.60006713867188" text="Sugár" />
+                      <TableColumn fx:id="heiCol" prefWidth="67.19999694824219" text="Magasság" />
+                        <TableColumn fx:id="AreaCol" prefWidth="71.199951171875" text="Felszín" />
+                        <TableColumn fx:id="AreaCol1" prefWidth="71.199951171875" text="Felszín" />
+                    </columns>
+                  </TableView>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="A fejlesztőről">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="56.0" layoutY="54.0" text="Név: Pók László" />
+                  <Label layoutX="56.0" layoutY="94.0" text="Csoport: SZOFT I/1/N" />
+                  <Label layoutX="56.0" layoutY="128.0" text="Dátum: 2025-05-26" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>
