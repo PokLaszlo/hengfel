@@ -9,6 +9,8 @@
 */
 package com.example;
 
+import java.util.ArrayList;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -19,10 +21,13 @@ import javafx.scene.control.ListView;
 public class MainController {
 
     @FXML
-    private ListView<?> result_Listview;
+    private ListView<Double> result_Listview;
 
     void initialize(){
-       
+       ArrayList<Cylinder> cylinders = Storage.readFile();
+       for (Cylinder cylinder : cylinders) {
+           result_Listview.getItems().addAll(cylinder.getSurface());
+       }
     }
 
     @FXML
@@ -56,6 +61,11 @@ public class MainController {
         String message = "Az adott henger felülete: "+String.valueOf(surface)+" cm^2";
         information("Eredmény", "Henger felülete", message);
         
+        ArrayList<Cylinder> cylinders = new ArrayList<>();
+        cylinders.add(new Cylinder(rad, hei, surface));
+
+        Storage.writer(cylinders);
+
         clearFields();
     }
     private void clearFields() {
