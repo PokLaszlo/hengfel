@@ -1,32 +1,36 @@
 package com.example;
 
-import javafx.beans.property.SimpleDoubleProperty;
-
 public class Cylinder {
-    private final SimpleDoubleProperty radius;
-    private final SimpleDoubleProperty height;
-    private final SimpleDoubleProperty surface;
+    private Double radius;
+    private Double height;
+    private Double surface;
 
-    public Cylinder(SimpleDoubleProperty radius, SimpleDoubleProperty height, SimpleDoubleProperty surface) {
+    public Cylinder(Double radius, Double height, Double surface) {
         this.radius = radius;
         this.height = height;
         this.surface = surface;
     }
-    public Cylinder(Double radius, Double height, Double surface) {
-        this.radius = new SimpleDoubleProperty(radius);
-        this.height = new SimpleDoubleProperty(height);
-        this.surface = new SimpleDoubleProperty(surface);
-    }
 
-    public SimpleDoubleProperty radiusProperty() {
+    public Double getRadius() {
         return radius;
     }
 
-    public SimpleDoubleProperty heightProperty() {
-        return height;
+    public void setRadius(Double radius) {
+        this.radius = radius;
     }
 
-    public SimpleDoubleProperty surfaceProperty() {
+    public Double getHeight() {
+        return height;
+    }    
+
+    public void setHeight(Double height) {
+        this.height = height;
+    }    
+
+    public Double getSurface() {
         return surface;
+    }
+    public void setSurface(Double surface) {
+        this.surface = surface;
     }
 }

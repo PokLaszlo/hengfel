@@ -2,10 +2,9 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
@@ -20,13 +19,7 @@
                   <Button layoutX="274.0" layoutY="142.0" mnemonicParsing="false" onAction="#onClick_calcButton" text="Számít" />
                   <Label layoutX="191.0" layoutY="14.0" text="Kör alapú henger felületének kiszámítása" />
                   <Label layoutX="242.0" layoutY="177.0" text="Eddigi próbálkozások" />
-                  <TableView fx:id="resultTable" layoutX="199.0" layoutY="209.0" prefHeight="147.0" prefWidth="202.0">
-                    <columns>
-                      <TableColumn fx:id="radCol" prefWidth="65.60006713867188" text="Sugár" />
-                      <TableColumn fx:id="heiCol" prefWidth="67.19999694824219" text="Magasság" />
-                        <TableColumn fx:id="AreaCol" prefWidth="71.199951171875" text="Felszín" />
-                    </columns>
-                  </TableView>
+                  <ListView fx:id="result_Listview" layoutX="201.0" layoutY="201.0" prefHeight="155.0" prefWidth="200.0" />
                </children></AnchorPane>
       </content>
     </Tab>
