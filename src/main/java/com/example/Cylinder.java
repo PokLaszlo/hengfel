@@ -1,3 +1,12 @@
+/*
+* File: Cylinder.java
+* Author: Pók László
+* Copyright: 2025, Pók László
+* Group: Szoft I/N
+* Date: 2025-05-26
+* Github: https://github.com/poklaszlo/
+* Licenc: MIT
+*/
 package com.example;
 
 public class Cylinder {
