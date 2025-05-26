@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ListView;
 
@@ -37,10 +38,21 @@ public class MainController {
     @FXML
     private TextField radius_Field;
 
-
     @FXML
     void onClick_calcButton(ActionEvent event) {
         startClick();
+    }
+    @FXML
+    void onClicked_listView(MouseEvent event) {
+        if(event.getClickCount()==2){
+            Cylinder sub = Storage.readFile().get(result_Listview.getSelectionModel().getSelectedIndex());
+            
+            String message ="Sugár: "+String.valueOf(sub.getRadius())+" cm\n" +
+                "Magasság: "+String.valueOf(sub.getHeight())+" cm\n" +
+                "Felület: "+String.valueOf(sub.getSurface())+" cm^2";
+            
+            information("Eredmény", "Megadott adatok", message);
+        }
     }
     private void startClick(){
         if(radius_Field.getText().isEmpty() || height_Field.getText().isEmpty()){

@@ -19,7 +19,7 @@
                   <Button layoutX="274.0" layoutY="142.0" mnemonicParsing="false" onAction="#onClick_calcButton" text="Számít" />
                   <Label layoutX="191.0" layoutY="14.0" text="Kör alapú henger felületének kiszámítása" />
                   <Label layoutX="242.0" layoutY="177.0" text="Eddigi próbálkozások" />
-                  <ListView fx:id="result_Listview" layoutX="201.0" layoutY="201.0" prefHeight="155.0" prefWidth="200.0" />
+                  <ListView fx:id="result_Listview" layoutX="201.0" layoutY="201.0" onMouseClicked="#onClicked_listView" prefHeight="155.0" prefWidth="200.0" />
                </children></AnchorPane>
       </content>
     </Tab>
