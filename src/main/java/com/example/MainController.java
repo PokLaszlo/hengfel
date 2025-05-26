@@ -23,6 +23,7 @@ public class MainController {
     @FXML
     private ListView<Double> result_Listview;
 
+    @FXML
     void initialize(){
        ArrayList<Cylinder> cylinders = Storage.readFile();
        for (Cylinder cylinder : cylinders) {
@@ -65,6 +66,10 @@ public class MainController {
         cylinders.add(new Cylinder(rad, hei, surface));
 
         Storage.writer(cylinders);
+
+        for (Cylinder cylinder : cylinders) {
+            result_Listview.getItems().addAll(cylinder.getSurface());
+        }
 
         clearFields();
     }

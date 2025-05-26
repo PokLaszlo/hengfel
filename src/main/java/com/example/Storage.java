@@ -33,6 +33,7 @@ public class Storage {
         try {
             return try_readFile();
         } catch (FileNotFoundException e) {
+            System.err.println("fájl nem találhato");
             System.err.println(e.getMessage());
             return new ArrayList<>();
         }
@@ -42,7 +43,8 @@ public class Storage {
         File myfile = new File("storage.txt");
         try(Scanner scanner = new Scanner(myfile)){
             while (scanner.hasNextLine()) {
-                String[] values = scanner.nextLine().split(" : ");
+                String line = scanner.nextLine();
+                String[] values = line.split(" : ");
                 cylinders.add(new Cylinder(
                     Double.parseDouble(values[0]),
                     Double.parseDouble(values[1]),
