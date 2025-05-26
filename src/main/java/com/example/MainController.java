@@ -9,6 +9,8 @@
 */
 package com.example;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -20,28 +22,40 @@ import javafx.scene.control.Alert.AlertType;
 public class MainController {
 
     @FXML
-    private TableColumn<?, ?> AreaCol;
+    private TableColumn<Cylinder,Number> AreaCol;
 
     @FXML
-    private TableColumn<?, ?> AreaCol1;
+    private TableColumn<Cylinder,Number> heiCol;
 
     @FXML
-    private TableColumn<?, ?> heiCol;
+    private TableColumn<Cylinder,Number> radCol;
+
+    @FXML
+    private TableView<Cylinder> resultTable;
+
+    @FXML
+    private ObservableList<Cylinder> resultList = FXCollections.observableArrayList();
+
+    void initialize(){
+        radCol.setCellValueFactory(cellData -> cellData.getValue().radiusProperty());
+        heiCol.setCellValueFactory(cellData -> cellData.getValue().heightProperty());
+        AreaCol.setCellValueFactory(cellData -> cellData.getValue().surfaceProperty());
+
+        resultTable.getColumns().addAll(radCol,heiCol,AreaCol);
+    }
 
     @FXML
     private TextField height_Field;
 
     @FXML
-    private TableColumn<?, ?> radCol;
-
-    @FXML
     private TextField radius_Field;
 
-    @FXML
-    private TableView<String> resultTable;
 
     @FXML
     void onClick_calcButton(ActionEvent event) {
+        startClick();
+    }
+    private void startClick(){
         if(radius_Field.getText().isEmpty() || height_Field.getText().isEmpty()){
             warning("Nem lehet üres az adat");
             clearFields();
@@ -60,7 +74,11 @@ public class MainController {
 
         String message = "Az adott henger felülete: "+String.valueOf(surface)+" cm^2";
         information("Eredmény", "Henger felülete", message);
-        clearFields();        
+        
+        resultList.add(new Cylinder(rad,hei,surface));
+        resultTable.setItems(resultList);
+        
+        clearFields();
     }
     private void clearFields() {
         radius_Field.setText("");

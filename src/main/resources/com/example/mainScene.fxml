@@ -9,7 +9,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.example.MainController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MainController">
   <tabs>
     <Tab text="Henger-felszín">
       <content>
@@ -25,7 +25,6 @@
                       <TableColumn fx:id="radCol" prefWidth="65.60006713867188" text="Sugár" />
                       <TableColumn fx:id="heiCol" prefWidth="67.19999694824219" text="Magasság" />
                         <TableColumn fx:id="AreaCol" prefWidth="71.199951171875" text="Felszín" />
-                        <TableColumn fx:id="AreaCol1" prefWidth="71.199951171875" text="Felszín" />
                     </columns>
                   </TableView>
                </children></AnchorPane>
